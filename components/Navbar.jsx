@@ -1,7 +1,6 @@
 "use client";
 import { navigationData } from "@/utils/constance";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Logo from "./ui/Logo";
@@ -13,6 +12,10 @@ const Navbar = () => {
   // handleNav function
   const handleNav = () => {
     setNav(!nav);
+  };
+  // handleClose function
+  const handleClose = () => {
+    setNav(false);
   };
 
   // useEffect hook
@@ -29,8 +32,6 @@ const Navbar = () => {
     window.addEventListener("scroll", changeColor);
   }, []);
 
-  // initialize useRouter hook
-  const router = useRouter();
   return (
     <div
       style={{ backgroundColor: `${color}` }}
@@ -44,11 +45,7 @@ const Navbar = () => {
         <ul style={{ color: `${textColor}` }} className="hidden sm:flex">
           {navigationData.map((data) => (
             <div className="p-4" key={data.id}>
-              <Link
-                key={data.id}
-                href={data.path}
-               
-              >
+              <Link key={data.id} href={data.path}>
                 {data.name}
               </Link>
             </div>
@@ -75,21 +72,17 @@ const Navbar = () => {
           }
         >
           <ul>
-            <li className="p-4 text-4xl hover:text-gray-50">
-              <Link href={"/"}>Home</Link>
-            </li>
-
-            <li className="p-4 text-4xl hover:text-gray-50">
-              <Link href={"/"}>Gallery</Link>
-            </li>
-
-            <li className="p-4 text-4xl hover:text-gray-50">
-              <Link href={"/"}>Work</Link>
-            </li>
-
-            <li className="p-4 text-4xl hover:text-gray-50">
-              <Link href={"/"}>Contact</Link>
-            </li>
+            {navigationData.map((data) => (
+              <li key={data.id} className="p-4 text-4xl hover:text-gray-50">
+                <Link
+                  href={data.path}
+                  onClick={handleClose}
+                  className="flex gap-3"
+                >
+                  {data.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         {/* close */}

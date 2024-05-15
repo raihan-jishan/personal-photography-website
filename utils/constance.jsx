@@ -1,3 +1,4 @@
+
 export const PostImages = [
   {
     id: 0,
@@ -101,7 +102,7 @@ export const navigationData = [
   {
     id:0,
     path:"",
-    name:"Home",
+    name:"Home", 
   },
   {
     id:1,

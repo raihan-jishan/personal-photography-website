@@ -14,8 +14,9 @@ const Hero = ({ heading, message }) => {
             text={"works"}
             path={'/work'}
             icon={<FaRegFolderClosed size={"25"} />}
-            fontSize={"text-xl"}
+            fontSize={"text-2xl"}
             radius={"rounded-2xl"}
+            fontSizeInMobile={'text-4xl'}
             fontWeight={"font-semibold"}
           />
         

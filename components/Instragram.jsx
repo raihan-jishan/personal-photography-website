@@ -36,6 +36,7 @@ const Instragram = () => {
         fontSize={"text-2xl"}
         fontWeight={"font-semibold"}
         radius={'rounded-full'}
+        fontSizeInMobile={'text-xl'}
         path={"https://www.instagram.com"}
         targetName={"_blank"}
         icon={<FaInstagram size={35} />}
